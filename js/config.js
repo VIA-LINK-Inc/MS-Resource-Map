@@ -9,8 +9,8 @@ const CONFIG = {
 
     client: {
     name: "VIA LINK",
-    mapTitle: "VIA LINK Disaster Resource Map",
-    demoMapTitle: "DEMO - VIA LINK Disaster Resource Map",
+    mapTitle: "Mississippi Disaster Resource Map",
+    demoMapTitle: "DEMO - Mississippi Disaster Resource Map",
     brandColor: "#087DC1"
 },
 
@@ -21,7 +21,7 @@ const CONFIG = {
 
     // Google Sheets configuration
     googleSheets: {
-        spreadsheetId: "1JrqGYulk1h3Kzx_IWyphtj6eJQoanyf7shY5t0XJ6J8"
+        spreadsheetId: "1yslbGwfDxqD6Krtg0skbc0ozaW83izw2g2RfUXvx__Q"
     },
 
     demo: {
@@ -133,10 +133,10 @@ resourceCategories: {
 clusterMaxZoom: 16,
 singleResourceZoom: 13,
 
-        // Default map center: New Orleans
+        
         defaultCenter: {
-            lat: 29.9511,
-            lng: -90.0715
+            lat: 30.718602,
+            lng: -89.324116
         },
 
         // Initial zoom level
