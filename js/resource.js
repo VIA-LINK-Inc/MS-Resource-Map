@@ -1,3 +1,10 @@
+// Turns a spreadsheet cell into a coordinate.
+// A blank cell becomes "not a number" instead of 0.
+function parseCoordinate(value) {
+    const text = String(value ?? "").trim();
+    return text === "" ? NaN : Number(text);
+}
+
 class Resource {
 
     constructor(data) {
@@ -12,11 +19,11 @@ class Resource {
         this.address =
             String(data.address ?? "").trim();
 
-        this.latitude =
-            Number(data.latitude);
+         this.latitude =
+            parseCoordinate(data.latitude);
 
         this.longitude =
-            Number(data.longitude);
+            parseCoordinate(data.longitude);
 
         this.parish =
             String(data.parish ?? "").trim();
@@ -49,11 +56,14 @@ class Resource {
      * Confirms that the minimum information needed
      * for a map marker exists.
      */
-    isValid() {
+       isValid() {
         return (
             this.name.length > 0 &&
             Number.isFinite(this.latitude) &&
-            Number.isFinite(this.longitude)
+            Number.isFinite(this.longitude) &&
+            Math.abs(this.latitude) <= 90 &&
+            Math.abs(this.longitude) <= 180 &&
+            !(this.latitude === 0 && this.longitude === 0)
         );
     }
 
